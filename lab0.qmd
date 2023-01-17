@@ -56,7 +56,19 @@ Both are very not correlated and non-linear
 
 ## Exercise 4
 
-(Add a labeled code chunk and narrative here. Insert code chunks using the "insert chunk" button (a green C with a +). Alternatively, use CMD + OPTION + I (Mac) or CTRL + ALT + I (Windows).)
+```{r}
+star_data <- datasaurus_dozen |>
+  filter(dataset == "star")
+ggplot(data = star_data, mapping = aes(x = x, y = y)) +
+  geom_point()
+```
+
+```{r}
+star_data |>
+  summarize(r = cor(x, y))
+```
+
+the r value remains very similar, although it is a bit smaller for the star than the r for the dino.
 
 ## Exercise 5
 
