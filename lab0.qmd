@@ -17,7 +17,7 @@ library(datasauRus)
 
 ## Exercise 1
 
-There are 13 variables.
+There are 3 variables - dataset, x, and y. There are also 1,846 rows and 3 columns
 
 ## Exercise 2
 
