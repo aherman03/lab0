@@ -45,9 +45,10 @@ dino_data %>%
 #| label: plot-circle
 #| fig-height: 5
 #| fig-width: 5
-
+circle_data <- datasaurus_dozen |>
+  filter(dataset == "circle")
 ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
-     geom_point()
+  geom_point()
 ```
 
 Some more narrative can go here.
