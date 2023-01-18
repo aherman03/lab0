@@ -23,6 +23,8 @@ There are 3 variables - dataset, x, and y. There are also 1,846 rows and 3 colum
 
 ```{r}
 #| label: plot-dino
+#| fig-height: 5
+#| fig-width: 5
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) + 
@@ -31,6 +33,8 @@ ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
 
 ```{r}
 #| label: cor-dino
+#| fig-height: 5
+#| fig-width: 5
 dino_data %>%
   summarize(r = cor(x, y))
 ```
@@ -39,6 +43,8 @@ dino_data %>%
 
 ```{r}
 #| label: plot-circle
+#| fig-height: 5
+#| fig-width: 5
 
 ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
      geom_point()
@@ -48,6 +54,8 @@ Some more narrative can go here.
 
 ```{r}
 #| label: cor-circle
+#| fig-height: 5
+#| fig-width: 5
 circle_data |>
      summarize(r = cor(x, y))
 ```
@@ -57,6 +65,8 @@ Both are very not correlated and non-linear
 ## Exercise 4
 
 ```{r}
+#| fig-height: 5
+#| fig-width: 5
 star_data <- datasaurus_dozen |>
   filter(dataset == "star")
 ggplot(data = star_data, mapping = aes(x = x, y = y)) +
@@ -64,6 +74,8 @@ ggplot(data = star_data, mapping = aes(x = x, y = y)) +
 ```
 
 ```{r}
+#| fig-height: 5
+#| fig-width: 5
 star_data |>
   summarize(r = cor(x, y))
 ```
@@ -73,6 +85,8 @@ the r value remains very similar, although it is a bit smaller for the star than
 ## Exercise 5
 
 ```{r}
+#| fig-height: 10
+#| fig-width: 6
 ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
   geom_point()+
   facet_wrap(~ dataset, ncol = 3) +
@@ -81,9 +95,11 @@ ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
 ```
 
 ```{r}
+#| fig-height: 10
+#| fig-width: 6
 datasaurus_dozen |>
   group_by(dataset) |>
   summarize(r = cor(x, y))
 ```
 
-I notice that although the plots appear significantly varied, the r values contain only slight differences. It is interesting to contrast the plots versus the correlated r-values.
+I notice that although the plots appear significantly varied, the r values contain only slight differences. It is interesting to contrast the plots versus the correlated r-values because physically there are only slight similarities between the plots in regards to the correlation between the x and y coordinates, yet when represented by r-values, these are only shown as slight changes.
